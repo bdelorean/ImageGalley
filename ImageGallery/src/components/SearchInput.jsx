@@ -1,6 +1,9 @@
-const SearchInput = ({ query, setQuery, searchImages}) => {
+const SearchInput = ({ query, setQuery, handleSearch }) => {
   return (
-    <form onSubmit={searchImages} className="flex flex-col items-center justify-center gap-6">
+    <form
+      onSubmit={handleSearch}
+      className="flex flex-col items-center justify-center gap-6"
+    >
       <input
         type="text"
         placeholder="Search for images..."
@@ -11,7 +14,6 @@ const SearchInput = ({ query, setQuery, searchImages}) => {
       <button
         type="submit"
         className=" px-10 py-1 bg-secondary text-white rounded focus:outline-none focus:ring focus:ring-secondary flex justify-center items-center"
-        
       >
         Search
       </button>
