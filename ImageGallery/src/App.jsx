@@ -7,25 +7,27 @@ import ImageCard from "./components/ImageCard";
 function App() {
   const [query, setQuery] = useState(" ");
   const [images, setImages] = useState([]);
+  
 
   const handleSearch = (e) => {
-    e.preventDefault(); // Previne trimiterea formularului
+    e.preventDefault(); 
     axios
       .get(`https://api.unsplash.com/search/photos`, {
         params: {
           query,
-          client_id: import.meta.env.VITE_UNSPLASH_KEY, // Cheia API
-          per_page: 12, // Limita de 12 imagini per pagină
+          client_id: import.meta.env.VITE_UNSPLASH_KEY, 
+          per_page: 12, 
         },
       })
       .then((response) => {
         setImages(response.data.results);
+        console.log("Image results:", response.data.results);
       })
       .catch((error) => {
         console.error("Error fetching images:", error);
       });
 
-    setImages("");
+   
   };
 
   useEffect(() => {
